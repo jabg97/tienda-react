@@ -67,10 +67,12 @@ export const Delete = (id, data, onSuccess) => dispatch => {
         })
         .catch(err => console.log(err))
 }
-export const Vender = (id, data, onSuccess) => dispatch => {
-    data = {
-        _method:'PUT',
+export const Vender = (id, cantidad, onSuccess) => dispatch => {
+   
+   var data = {
+        cantidad:cantidad,
     _method:'PUT'};
+    console.log(data);
     api.Producto().update(id, data)
         .then(res => {
             console.log(res.data);

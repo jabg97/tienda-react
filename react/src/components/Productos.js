@@ -39,7 +39,7 @@ const Productos = ({ classes, ...props }) => {
         var cantidad = window.prompt('Digite la cantidad');
         if (cantidad >0){
             if (item.stock >cantidad){
-            props.venderProducto(item.id,cantidad,()=>addToast("Eliminado Correctamente", { appearance: 'info' }))
+           // props.venderProducto(item.id,cantidad,()=>addToast("Eliminado Correctamente", { appearance: 'info' }))
         }else{
             alert("Maximo "+item.stock+" productos.");
         }

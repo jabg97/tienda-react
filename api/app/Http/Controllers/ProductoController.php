@@ -116,4 +116,33 @@ class ProductoController extends Controller
             return response()->json(['status' => 500, 'message' => $e->getMessage()]);
         }
     }
+
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function vender($id, Request $request)
+    {
+        try {
+            $rules = array(
+                'cantidad' => 'numeric|required',
+            );
+            return response()->json($request);
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return response()->json(['status' => 500, 'message' => "Error en el formulario", 'messageJSON' => $validator]);
+            } else {
+                $producto = Producto::findOrFail($id);
+                $producto->stock = $producto->stock-$request->cantidad;
+                $producto->save();
+                return response()->json(['status' => 200, 'message' => 'El producto "' . $producto->nombre . '" ha sido editado.']);
+            }
+        } catch (Throwable $e) {
+            return response()->json(['status' => 500, 'message' => $e->getMessage()]);
+        }
+    }
 }
