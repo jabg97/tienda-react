@@ -17,6 +17,7 @@ Iniciar Base de datos y seed
 ```
 php artisan migrate:fresh --seed
 ```
+Iniciar Servidor
 ```
 php artisan serve --port=8080
 ```
