@@ -19,7 +19,7 @@ php artisan migrate:fresh --seed
 ```
 Iniciar Servidor
 ```
-php artisan serve --port=8080
+php artisan serve --port=8000
 ```
 ## Aviso
 Debe asegurarse que la api se ejecute en la direccion 
